@@ -1,10 +1,5 @@
 const express = require('express')
-const path = require("path");
 const app = express()
-
-function filter(obj, cb) {
-  return Object.fromEntries(Object.entries(obj).filter(([key, val]) => cb(val, key)));
-}
 
 // #############################################################################
 // This configures static hosting for files in /public that have the extensions
@@ -34,7 +29,7 @@ app.use('/status/:code?', async (req, res) => {
 app.use('*', (req,res) => {
 //   var region = (process.env.region)? process.env.region : 'undefined'
   res.json({
-      message: 'msg: have a nice day',
+      message: process.env.GREETING_MESSAGE||'empty process.env.GREETING_MESSAGE',
       path: req.originalUrl,
       at: new Date().toISOString(),
       params: req.params,
@@ -43,5 +38,9 @@ app.use('*', (req,res) => {
     })
     .end()
 })
+
+function filter(obj, cb) {
+  return Object.fromEntries(Object.entries(obj).filter(([key, val]) => cb(val, key)));
+}
 
 module.exports = app
