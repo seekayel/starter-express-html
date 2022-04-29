@@ -27,7 +27,6 @@ app.use('/status/:code?', async (req, res) => {
 // #############################################################################
 // Catch all handler for all other request.
 app.use('*', (req,res) => {
-//   var region = (process.env.region)? process.env.region : 'undefined'
   res.json({
       message: process.env.GREETING_MESSAGE||'empty process.env.GREETING_MESSAGE',
       path: req.originalUrl,
