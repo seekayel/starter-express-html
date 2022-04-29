@@ -2,6 +2,15 @@ const express = require('express')
 const app = express()
 
 // #############################################################################
+// Logs all request paths and method
+app.use(function (req, res, next) {
+  console.log(`current time: ${new Date().toISOString()}`)
+  console.log(`env keys: ${Object.keys(process.env)}`)
+  next();
+  console.log('done')
+});
+
+// #############################################################################
 // This configures static hosting for files in /public that have the extensions
 // listed in the array.
 var options = {
@@ -35,7 +44,7 @@ app.use('*', (req,res) => {
       env: filter(process.env, (k,v) => {return !k.startsWith('AWS')}),
       headers: req.headers
     })
-    .end()
+    res.end()
 })
 
 function filter(obj, cb) {
