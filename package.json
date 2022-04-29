@@ -1,0 +1,25 @@
+{
+  "name": "starter-express-html",
+  "version": "1.0.0",
+  "description": "Expressjs Hello World example to provide faster start deploying on Cyclic platform",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon --watch . server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyclic-software/starter-express-html.git"
+  },
+  "author": "Cyclic Software",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cyclic-software/starter-express-html/issues"
+  },
+  "homepage": "https://github.com/cyclic-software/starter-express-html#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
